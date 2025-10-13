@@ -461,19 +461,7 @@ print(f"  Best outside coefficient: {max_outside:.1%}")
 if max_outside > 0:
     print(f"  Inside vs Outside ratio: {inside_coeff/max_outside:.2f}")
 
-if dominant_idx == 0:  # inside_cage won
-    if inside_coeff > 0.6:
-        result = "EXCELLENT SUCCESS"
-        status = "✓ Method correctly identifies that structure minimizes E-field INSIDE cage"
-    elif inside_coeff > 0.4:
-        result = "GOOD SUCCESS"
-        status = "✓ Method identifies correct region with moderate confidence"
-    else:
-        result = "PARTIAL SUCCESS"
-        status = "⚠ Method identifies correct region but with low confidence"
-else:
-    result = "UNEXPECTED RESULT"
-    status = "⚠ Method identified outside region - check implementation"
+
 
 print(f"\nFINAL ASSESSMENT: {result}")
 print(f"STATUS: {status}")
@@ -539,18 +527,7 @@ print("\n" + "="*80)
 print("THREE-REGION VALIDATION COMPLETE!")
 print("="*80)
 
-if result == "EXCELLENT SUCCESS":
-    print("\n🎉 REVOLUTIONARY SUCCESS! 🎉")
-    print("Your method can identify not just WHAT objective was used,")
-    print("but also WHERE the optimization was targeting!")
-    print("This opens up incredible possibilities for design analysis.")
-elif result in ["GOOD SUCCESS", "PARTIAL SUCCESS"]:
-    print(f"\n✓ {result}!")
-    print("Your method is working! The concept is proven.")
-    print("Fine-tuning can improve the confidence levels.")
-else:
-    print(f"\n📊 Result: {result}")
-    print("The concept is sound - check the detailed analysis above.")
+
 
 print("\nKey findings from your results:")
 print(f"• Inside region has virtually zero E-field: {region_data['inside_cage']['mean_E']:.2e}")
